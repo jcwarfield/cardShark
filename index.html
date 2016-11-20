@@ -1,0 +1,23 @@
+<!doctype html>
+  <head>
+    <title>Card Shark Lite</title>
+    <link rel="stylesheet" href="cardShark.css">
+  </head>
+  <body>
+    <div>
+      <span><input id="create-deck" type="button" value="Create Deck" onclick="cardShark.createDeck()" /></span>
+      <span><input id="shuffle-deck" type="button" value="Shuffle Deck" onclick="cardShark.shuffleDeck()" /></span>
+      <span><input id="deal-card" type="button" value="Deal Card" onclick="cardShark.dealCard()" /></span>
+    </div>
+    <hr>
+    <h3>Card Deck:</h3>
+    <div id="deck-results"></div>
+    <hr>
+    <h3>Shuffled Deck:</h3>
+    <div id="shuffle-results"></div>
+    <hr>
+    <h3>Card dealt is:</h3>
+    <div id="deal-results"></div>
+    <script src="cardShark.js"></script>
+  </body>
+</html>
