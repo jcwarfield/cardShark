@@ -36,17 +36,14 @@ var cardShark = {
 
   shuffleDeck: function() {
 
-    document.getElementById("create-deck").disabled = true;
     document.getElementById("deal-card").disabled = true;
 
-    var i, j, k, temp;
+    var i, j, temp;
     for (i = 0; i < this.deck.length; i++) {
-      for (j = 0; j < this.deck.length; j++) {
-        k = Math.floor(Math.random() * this.deck.length);
-        temp = this.deck[j];
-        this.deck[j] = this.deck[k];
-        this.deck[k] = temp;
-      }
+      j = Math.floor(Math.random() * this.deck.length);
+      temp = this.deck[i];
+      this.deck[i] = this.deck[j];
+      this.deck[j] = temp;
     }
 
     this.displayDeck();
@@ -69,7 +66,6 @@ var cardShark = {
       }
       this.appendResultsElements(span, textNode, "shuffle-results");
     }
-    document.createElement("hr");
   },
 
   dealCard: function() {
@@ -77,11 +73,9 @@ var cardShark = {
     var span = document.createElement("span");
 
     if (this.deck.length > 0) {
-      var cardDealt = document.createTextNode(this.deck[0].rank + " of " + this.deck[0].suit);
-      span.appendChild(cardDealt);
-      var currentDiv = document.getElementById("deal-results");
-      currentDiv.appendChild(span);
-      document.getElementById("deal-card").disabled = true;
+      this.removeChildElements("deal-results");
+      var textNode = this.deck[0].rank + " of " + this.deck[0].suit;
+      this.appendResultsElements(span, textNode, "deal-results");
     }
     else return null;
   },
