@@ -1,5 +1,10 @@
 var cardShark = {
 
+  init: function() {
+    document.getElementById("shuffle-deck").disabled = true;
+    document.getElementById("deal-card").disabled = true;
+  },
+
   card: function (rank, suit) {
     this.rank = rank;
     this.suit = suit;
@@ -13,7 +18,6 @@ var cardShark = {
 
   createDeck: function() {
 
-    document.getElementById("create-deck").disabled = false;
     document.getElementById("shuffle-deck").disabled = true;
     document.getElementById("deal-card").disabled = true;
 
